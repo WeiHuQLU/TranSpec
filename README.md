@@ -10,7 +10,7 @@ This section describes how to preprocess data to make it accessible to the model
 
 ### Data preprocessing
 
-We took the first 5000 molecules of the QM9S dataset as an example. First, we preprocessed 2 data files in the examples/data folder in figshare. In Anaconda Prompt, find the path to the folder where qm9sdata_processing-examples.py is currently located, and then use the following code to perform the preprocessing operation.
+We took the first 5000 molecules of the QM9S dataset as an example. First, we preparation 2 data files in the examples/data folder in figshare. In Anaconda Prompt, find the path to the folder where qm9sdata_processing-examples.py is currently located, and then use the following code to perform the preprocessing operation.
 
 
 ```python
