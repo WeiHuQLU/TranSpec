@@ -9,6 +9,7 @@ numpy==1.24.1
 pandas==2.1.3
 rdkit==2022.9.5
 scipy==1.11.4
+scikit-learn==1.5.2
 torch-cluster==1.6.1+pt20cu118
 torch-scatter==2.1.1+pt20cu118
 torch-sparse==0.6.17+pt20cu118
