@@ -460,3 +460,4 @@ class Trainer:
 
 trainer=Trainer(model,train_loader=trainloader,val_loader=valloader,loss_function=combine_loss,acc_function=sis,lr=1e-4,weight_decay=0,optimizer='AdamW')
 trainer.train(num_train=1000,targ='spectra',val_per_train=150,print_per_epoch=30)
+trainer.save_param('GNN.pth')
