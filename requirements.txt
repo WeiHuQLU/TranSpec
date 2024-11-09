@@ -1,5 +1,31 @@
-torch==2.2.1+cu118
+# Python and system requirements
+python==3.9.0  # Requires Python version 3.9.0
+os: Windows 11  # Compatible with Windows 11
+cuda: 11.8+  # Requires NVIDIA GPU with CUDA version 11.8 or higher
+
+# Python dependencies
+torch==2.0.0+cu118
 numpy==1.24.1
-python==3.9.0
+pandas==2.1.3
 rdkit==2022.9.5
 scipy==1.11.4
+torch-cluster==1.6.1+pt20cu118
+torch-scatter==2.1.1+pt20cu118
+torch-sparse==0.6.17+pt20cu118
+torch-spline-conv==1.2.2+pt20cu118
+torch-geometric==2.4.0
+
+Note: To download PyTorch, use the following command:
+pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
+The following packages are dependencies required for torch-geometric==2.4.0:
+torch-cluster==1.6.1+pt20cu118
+torch-scatter==2.1.1+pt20cu118
+torch-sparse==0.6.17+pt20cu118
+torch-spline-conv==1.2.2+pt20cu118
+These dependencies must be downloaded offline from the following link: 
+https://data.pyg.org/whl/torch-2.0.0%2Bcu118.html 
+After downloading the corresponding versions, navigate to the directory where the files are located and install them using:
+pip install <downloaded_package.whl>
+Finally, install torch-geometric with the following command:
+pip install torch-geometric==2.4.0
+Other libraries can be installed using pip install as usual.
