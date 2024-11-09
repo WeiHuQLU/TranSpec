@@ -2,7 +2,7 @@
 
 ## Installation environment
 
-The required packages and their versions can be found in requirements.txt
+The required operating system, GPU specifications, software packages, their versions, and download instructions can be found in the requirements.txt file.
 
 ## Training a model
 
@@ -10,7 +10,7 @@ This section describes how to preprocess data to make it accessible to the model
 
 ### Data preprocessing
 
-We take the first 5000 molecules of the QM9S dataset as an example. First, we prepare two data files in the examples/data folder of figshare(https://doi.org/10.6084/m9.figshare.26333170), which are the IR spectra data file and the corresponding SMILES file. Find the path of the folder where qm9sdata_processing-examples.py is currently located in Anaconda Prompt, put the two data files and qm9sdata_processing-examples.py into the same path, and then execute the preprocessing operation with the following code.
+We take the first 5000 molecules of the QM9S dataset as an example. First, we prepare two data files in the examples/data folder of figshare(https://figshare.com/s/1581c92625dc3803f983), which are the IR spectra data file and the corresponding SMILES file. Find the path of the folder where qm9sdata_processing-examples.py is currently located in Anaconda Prompt, put the two data files and qm9sdata_processing-examples.py into the same path, and then execute the preprocessing operation with the following code.
 
 
 ```python
