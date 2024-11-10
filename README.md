@@ -150,13 +150,33 @@ python mass_screening.py
 
 ## Reproduction instructions
 
-Setp 1. Utilize data_processing.py script to devide the .CSV files (the data of the infrared and Raman spectra) and the .TXT files (the corresponding SMILES) into training, validation, and test sets. The proportion of the training, validation, and test sets are 80%, 10% and 10%, respectively. Here the .CSV files and the .TXT files could be the QM9S IR, QM9S Raman and experiment IR data. The data augmentation can be applied to the training set during preprocessing by setting the keyword of "shift，scale or quantize" to "Ture" in data_processing.py script. The final output are three .PT files that corresponds to the training, validation, and test sets.
-Setp 2. Use the train.py script to train TranSpec on the prepared dataset outputted from Setp 1, resulting in a .PT file written with the ML parameters. Then use evaluate.py script to evaluate the accuracy of TranSpec on the test set, providing accuracy metrics and a .CSV file that contains all SMILES candidates.
-Setp 3. Use the model_fusion.py script to perform model fusion, making the correct SMILES rank higher.
-Setp 4. Use SpecGNN.py script and an experimental IR spectra dataset to train SpecGNN, realizing the direct molecular spectra simulation based solely on SMILES. Then utilize SpecGNN to simulated all molecules in experimental IR test dataset. Based on the spectra similarities, re-rank the potential SMILES candidates.
-Setp 5. Apply the mass_screening.py script to further filter the SMILES candidates, making the correct SMILES rank higher.
-Setp 6. Evaluate the model's ability to recognize functional groups using the functional_groups.py script.
-Setp 7. Use the recognizing_isomer.py script to assess the model's capability in distinguishing isomers and homologous.
+### Setp 1. 
+
+Utilize data_processing.py script to devide the .CSV files (the data of the infrared and Raman spectra) and the .TXT files (the corresponding SMILES) into training, validation, and test sets. The proportion of the training, validation, and test sets are 80%, 10% and 10%, respectively. Here the .CSV files and the .TXT files could be the QM9S IR, QM9S Raman and experiment IR data. The data augmentation can be applied to the training set during preprocessing by setting the keyword of "shift，scale or quantize" to "Ture" in data_processing.py script. The final output are three .PT files that corresponds to the training, validation, and test sets.
+
+### Setp 2. 
+
+Use the train.py script to train TranSpec on the prepared dataset outputted from Setp 1, resulting in a .PT file written with the ML parameters. Then use evaluate.py script to evaluate the accuracy of TranSpec on the test set, providing accuracy metrics and a .CSV file that contains all SMILES candidates.
+
+### Setp 3. 
+
+Use the model_fusion.py script to perform model fusion, making the correct SMILES rank higher.
+
+### Setp 4. 
+
+Use SpecGNN.py script and an experimental IR spectra dataset to train SpecGNN, realizing the direct molecular spectra simulation based solely on SMILES. Then utilize SpecGNN to simulated all molecules in experimental IR test dataset. Based on the spectra similarities, re-rank the potential SMILES candidates.
+
+### Setp 5. 
+
+Apply the mass_screening.py script to further filter the SMILES candidates, making the correct SMILES rank higher.
+
+### Setp 6. 
+
+Evaluate the model's ability to recognize functional groups using the functional_groups.py script.
+
+### Setp 7. 
+
+Use the recognizing_isomer.py script to assess the model's capability in distinguishing isomers and homologous.
 
 
 
