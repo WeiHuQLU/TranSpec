@@ -4,7 +4,7 @@ The required operating system, GPU specifications, software packages, their vers
 
 ## All software dependencies and operating systems (including version numbers)
 
-Python and system requirements /n
+Python and system requirements 
 python==3.9.0  # Requires Python version 3.9.0
 os: Windows 11  # Compatible with Windows 11
 cuda: 11.8+  # Requires NVIDIA GPU with CUDA version 11.8 or higher
@@ -113,6 +113,40 @@ It takes about 1 minutes.
 # Instructions for use
 
 ## How to run the software on your data
+
+Setp 1. Process the dataset, dividing into training, validation, and test sets.
+
+```python
+python qm9sdata_processing.py
+```
+
+```python
+python NISTdata_processing.py
+```
+
+Setp 2. Train TranSpec on dataset.
+
+```python
+python train.py
+```
+
+Setp 3. Perform model fusion.
+
+```python
+python model_fusion.py
+```
+
+Setp 4. Train SpecGNN, and re-rank the potential SMILES candidates.
+
+```python
+python SpecGNN.py
+```
+
+Setp 5. Filter the SMILES candidates using molecular mass.
+
+```python
+python mass_screening.py
+```
 
 ## Reproduction instructions
 
