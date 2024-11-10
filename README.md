@@ -5,8 +5,11 @@ The required operating system, GPU specifications, software packages, their vers
 ## All software dependencies and operating systems (including version numbers)
 
 Python and system requirements 
+
 python==3.9.0  # Requires Python version 3.9.0
+
 os: Windows 11  # Compatible with Windows 11
+
 cuda: 11.8+  # Requires NVIDIA GPU with CUDA version 11.8 or higher
 
 ## Versions the software has been tested on
