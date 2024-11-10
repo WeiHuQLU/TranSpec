@@ -15,16 +15,27 @@ cuda: 11.8+  # Requires NVIDIA GPU with CUDA version 11.8 or higher
 ## Versions the software has been tested on
 
 Python dependencies
+
 torch==2.0.0+cu118
+
 numpy==1.24.1
+
 pandas==2.1.3
+
 rdkit==2022.9.5
+
 scipy==1.11.4
+
 scikit-learn==1.5.2
+
 torch-cluster==1.6.1+pt20cu118
+
 torch-scatter==2.1.1+pt20cu118
+
 torch-sparse==0.6.17+pt20cu118
+
 torch-spline-conv==1.2.2+pt20cu118
+
 torch-geometric==2.4.0
 
 ## Any required non-standard hardware
@@ -36,18 +47,31 @@ None
 ## Instructions
 
 Note: To download PyTorch, use the following command:
+
 pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
+
 The following packages are dependencies required for torch-geometric==2.4.0:
+
 torch-cluster==1.6.1+pt20cu118
+
 torch-scatter==2.1.1+pt20cu118
+
 torch-sparse==0.6.17+pt20cu118
+
 torch-spline-conv==1.2.2+pt20cu118
+
 These dependencies must be downloaded offline from the following link: 
+
 https://data.pyg.org/whl/torch-2.0.0%2Bcu118.html 
+
 After downloading the corresponding versions, navigate to the directory where the files are located and install them using:
+
 pip install <downloaded_package.whl>
+
 Finally, install torch-geometric with the following command:
+
 pip install torch-geometric==2.4.0
+
 Other libraries can be installed using pip install as usual.
 
 ## Typical install time on a "normal" desktop computer
@@ -153,33 +177,19 @@ python mass_screening.py
 
 ## Reproduction instructions
 
-### Setp 1. 
+Setp 1. Utilize data_processing.py script to devide the .CSV files (the data of the infrared and Raman spectra) and the .TXT files (the corresponding SMILES) into training, validation, and test sets. The proportion of the training, validation, and test sets are 80%, 10% and 10%, respectively. Here the .CSV files and the .TXT files could be the QM9S IR, QM9S Raman and experiment IR data. The data augmentation can be applied to the training set during preprocessing by setting the keyword of "shift，scale or quantize" to "Ture" in data_processing.py script. The final output are three .PT files that corresponds to the training, validation, and test sets.
 
-Utilize data_processing.py script to devide the .CSV files (the data of the infrared and Raman spectra) and the .TXT files (the corresponding SMILES) into training, validation, and test sets. The proportion of the training, validation, and test sets are 80%, 10% and 10%, respectively. Here the .CSV files and the .TXT files could be the QM9S IR, QM9S Raman and experiment IR data. The data augmentation can be applied to the training set during preprocessing by setting the keyword of "shift，scale or quantize" to "Ture" in data_processing.py script. The final output are three .PT files that corresponds to the training, validation, and test sets.
+Setp 2. Use the train.py script to train TranSpec on the prepared dataset outputted from Setp 1, resulting in a .PT file written with the ML parameters. Then use evaluate.py script to evaluate the accuracy of TranSpec on the test set, providing accuracy metrics and a .CSV file that contains all SMILES candidates.
 
-### Setp 2. 
+Setp 3. Use the model_fusion.py script to perform model fusion, making the correct SMILES rank higher.
 
-Use the train.py script to train TranSpec on the prepared dataset outputted from Setp 1, resulting in a .PT file written with the ML parameters. Then use evaluate.py script to evaluate the accuracy of TranSpec on the test set, providing accuracy metrics and a .CSV file that contains all SMILES candidates.
+Setp 4. Use SpecGNN.py script and an experimental IR spectra dataset to train SpecGNN, realizing the direct molecular spectra simulation based solely on SMILES. Then utilize SpecGNN to simulated all molecules in experimental IR test dataset. Based on the spectra similarities, re-rank the potential SMILES candidates.
 
-### Setp 3. 
+Setp 5. Apply the mass_screening.py script to further filter the SMILES candidates, making the correct SMILES rank higher.
 
-Use the model_fusion.py script to perform model fusion, making the correct SMILES rank higher.
+Setp 6. Evaluate the model's ability to recognize functional groups using the functional_groups.py script.
 
-### Setp 4. 
-
-Use SpecGNN.py script and an experimental IR spectra dataset to train SpecGNN, realizing the direct molecular spectra simulation based solely on SMILES. Then utilize SpecGNN to simulated all molecules in experimental IR test dataset. Based on the spectra similarities, re-rank the potential SMILES candidates.
-
-### Setp 5. 
-
-Apply the mass_screening.py script to further filter the SMILES candidates, making the correct SMILES rank higher.
-
-### Setp 6. 
-
-Evaluate the model's ability to recognize functional groups using the functional_groups.py script.
-
-### Setp 7. 
-
-Use the recognizing_isomer.py script to assess the model's capability in distinguishing isomers and homologous.
+Setp 7. Use the recognizing_isomer.py script to assess the model's capability in distinguishing isomers and homologous.
 
 
 
