@@ -93,7 +93,9 @@ python qm9sdata_processing-examples.py
 ### Expected output
 
 qm9s_train_irdata-examples.pt
+
 qm9s_valid_irdata-examples.pt
+
 qm9s_test_irdata-examples.pt
 
 ### Expected run time for demo on a "normal" desktop computer
@@ -131,6 +133,7 @@ python evaluate-examples.py
 ### Expected output
 
 0.01_candidate_ircnn-examples.csv
+
 0.01_label_ircnn-examples.csv
 
 ### Expected run time for demo on a "normal" desktop computer
